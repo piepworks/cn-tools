@@ -9,6 +9,7 @@ class CropfactorController extends Controller
     public function index(Request $request)
     {
         // print_r($this->zippy(3));
+        print_r(config('cf.presets.full.dimensions.width'));
 
         return view ('cropfactor', [
             'preset' => $request->query('preset') ?? 'full',
