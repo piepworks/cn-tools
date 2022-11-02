@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CropfactorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('cropfactor');
 });
+
+Route::get('/cropfactor', [CropfactorController::class, 'index'])->name('cropfactor');
+
+// Example of returning JSON:
+// Route::get('/crop', function () {
+//     return ['foo' => 'bar'];
+// });
