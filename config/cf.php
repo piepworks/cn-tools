@@ -14,7 +14,7 @@ return [
         // then we can make it an <optgroup>.
         'aps-ch' => [
             'name' => 'APS-C/H',
-            'items' => [
+            'presets' => [
                 'nikon-apsc' => [
                     'name' => 'Nikon DX',
                     'dimensions' => [
@@ -59,7 +59,7 @@ return [
 
         'mf-digital' => [
             'name' => '“Medium Format” Digital',
-            'items' => [
+            'presets' => [
                 'fuji-mf' => [
                     'name' => 'Fuji G Mount / Hasselblad X1D',
                     'dimensions' => [

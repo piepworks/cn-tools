@@ -1,20 +1,23 @@
 <x-layout title="Crop Factor Calculator">
     <h1>Crop Factor Calculator</h1>
 
-    <ul>
-    @foreach ($presets as $preset)
-        <li>
-        {{ $preset['name'] }}
-        @if (@isset($preset['items']))
-            <ul>
-            @foreach ($preset['items'] as $item)
-                <li>{{ $item['name'] }}</li>
+    <select>
+    @foreach ($presets as $key => $preset)
+        @if (@isset($preset['presets']))
+            <optgroup label="{{ $preset['name'] }}">
+            @foreach ($preset['presets'] as $subKey => $subPreset)
+                <option value="{{ $subKey }}">{{ $subPreset['name'] }}</option>
             @endforeach
-            </ul>
+            </optgroup>
+        @else
+            <option value="{{ $key }}">
+                {{ $preset['name'] }}
+            </option>
         @endif
-        </li>
     @endforeach
-    </ul>
+    </select>
+
+    <hr>
 
     <form action="">
         <button>Submit</button>
