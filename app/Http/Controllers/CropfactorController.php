@@ -27,7 +27,7 @@ class CropfactorController extends Controller
 
         return view ('cropfactor', [
             'presets' => config('cf.presets'),
-            'p' => $request->query('preset') ?? 'full',
+            'currentPreset' => $request->query('preset') ?? 'full',
             // 'height' => $request->query('height') ?? null,
             // 'width' => $request->query('width') ?? null,
             // 'focalLength' => $request->query('focal_length') ?? 50,

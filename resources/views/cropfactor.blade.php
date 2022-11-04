@@ -7,13 +7,13 @@
                 @if (@isset($preset['presets']))
                     <optgroup label="{{ $preset['name'] }}">
                     @foreach ($preset['presets'] as $subKey => $subPreset)
-                        <option value="{{ $key }}.{{ $subKey }}"@if ($p == $key . '.' . $subKey) selected @endif>
+                        <option value="{{ $key }}.{{ $subKey }}"@if ($currentPreset == $key . '.' . $subKey) selected @endif>
                             {{ $subPreset['name'] }}
                         </option>
                     @endforeach
                     </optgroup>
                 @else
-                    <option value="{{ $key }}"@if ($p == $key) selected @endif>
+                    <option value="{{ $key }}"@if ($currentPreset == $key) selected @endif>
                         {{ $preset['name'] }}
                     </option>
                 @endif
