@@ -14,7 +14,7 @@ class CropfactorController extends Controller
         // print_r($presets);
 
         $preset = 'aps-ch/nikon-apsc';
-        $pieces = explode('/', $preset);
+        $pieces = explode('.', $preset);
 
         if (count($pieces) > 1) {
             $selector = $pieces[0] . '.presets.' . $pieces[1];
@@ -22,13 +22,12 @@ class CropfactorController extends Controller
             $selector = $pieces[0];
         }
 
-        $output = data_get($presets, $selector);
-
+        // $output = data_get($presets, $selector);
         // dd($output['dimensions']);
 
         return view ('cropfactor', [
             'presets' => config('cf.presets'),
-            // 'preset' => $request->query('preset') ?? 'full',
+            'p' => $request->query('preset') ?? 'full',
             // 'height' => $request->query('height') ?? null,
             // 'width' => $request->query('width') ?? null,
             // 'focalLength' => $request->query('focal_length') ?? 50,
