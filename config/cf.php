@@ -10,8 +10,6 @@ return [
             ],
         ],
 
-        // I guess if an item has 'items' in it,
-        // then we can make it an <optgroup>.
         'aps-ch' => [
             'name' => 'APS-C/H',
             'presets' => [

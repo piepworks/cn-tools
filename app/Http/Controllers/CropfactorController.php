@@ -10,6 +10,21 @@ class CropfactorController extends Controller
     {
         // print_r($this->zippy(3));
         // print_r(config('cf.presets.aps-ch.items'));
+        $presets = config('cf.presets');
+        // print_r($presets);
+
+        $preset = 'aps-ch/nikon-apsc';
+        $pieces = explode('/', $preset);
+
+        if (count($pieces) > 1) {
+            $selector = $pieces[0] . '.presets.' . $pieces[1];
+        } else {
+            $selector = $pieces[0];
+        }
+
+        $output = data_get($presets, $selector);
+
+        // dd($output['dimensions']);
 
         return view ('cropfactor', [
             'presets' => config('cf.presets'),

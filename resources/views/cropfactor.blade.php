@@ -6,7 +6,7 @@
         @if (@isset($preset['presets']))
             <optgroup label="{{ $preset['name'] }}">
             @foreach ($preset['presets'] as $subKey => $subPreset)
-                <option value="{{ $subKey }}">{{ $subPreset['name'] }}</option>
+                <option value="{{ $key }}/{{ $subKey }}">{{ $subPreset['name'] }}</option>
             @endforeach
             </optgroup>
         @else
