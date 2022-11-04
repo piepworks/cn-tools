@@ -18,7 +18,7 @@
                     </option>
                 @endif
             @endforeach
-            </select>
+        </select>
 
         <button>Submit</button>
     </form>
