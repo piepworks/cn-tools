@@ -58,8 +58,8 @@ class CropfactorController extends Controller
         return round(($fullFrame / $currentValues), 2);
     }
 
-    protected function equivalentFocalLength($cropFactor, $focalLength)
+    protected function equivalentFocalLength($cf, $fl)
     {
-        return round(($cropFactor * $focalLength), 2);
+        return round(($cf * $fl), 2);
     }
 }
