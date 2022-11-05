@@ -4,7 +4,7 @@
         <div>
             <label>
                 Select format:
-                <select name="preset">
+                <select name="preset" hx-trigger="change" hx-target="form" hx-get="/cropfactor">
                     <option value="blank">Choose a format</option>
                     @foreach ($presets as $key => $preset)
                         @if (@isset($preset['presets']))

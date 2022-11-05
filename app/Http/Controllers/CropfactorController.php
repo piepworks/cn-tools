@@ -48,11 +48,17 @@ class CropfactorController extends Controller
         $results['aspectRatio'] = $this->aspectRatio($results['height'], $results['width']);
         $results['aspectRatioDecimal'] = $this->aspectRatioDecimal($results['height'], $results['width']);
 
-        return view ('cropfactor', [
+        $context = [
             'presets' => config('cf.presets'),
             'currentPreset' => $currentPreset,
             'results' => $results,
-        ]);
+        ];
+
+        if ($request->header('HX-Request')) {
+            return view ('cropfactor-form', $context);
+        } else {
+            return view ('cropfactor', $context);
+        }
     }
 
     protected function diagonal($h, $w)
