@@ -7,6 +7,7 @@
         <li>Focal Length: {{ $results['focalLength'] }}</li>
         <li>ƒ/stop: {{ $results['fStop'] }}</li>
         <li>Diagonal: {{ $results['diagonal'] }}</li>
+        <li><b>Crop Factor: {{ $results['cropfactor'] }}</b></li>
     </ul>
 
     <hr>

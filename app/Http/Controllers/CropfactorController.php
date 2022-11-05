@@ -11,6 +11,10 @@ class CropfactorController extends Controller
         $presets = config('cf.presets');
         $currentPreset['selector'] = $request->query('preset') ?? 'full';
         $pieces = explode('.', $currentPreset['selector']);
+        $fullFrame = array(
+            'height' => data_get($presets, 'full')['dimensions']['height'],
+            'width' => data_get($presets, 'full')['dimensions']['width'],
+        );
 
         if (count($pieces) > 1) {
             $fullSelector = $pieces[0] . '.presets.' . $pieces[1];
@@ -29,6 +33,7 @@ class CropfactorController extends Controller
         $results['height'] = $request->query('height') ?? $currentPreset['values']['dimensions']['height'];
         $results['width'] = $request->query('width') ?? $currentPreset['values']['dimensions']['width'];
         $results['diagonal'] = $this->diagonal($results['width'], $results['height']);
+        $results['cropfactor'] = $this->cropFactor($fullFrame, $results);
 
         return view ('cropfactor', [
             'presets' => config('cf.presets'),
@@ -40,5 +45,13 @@ class CropfactorController extends Controller
     protected function diagonal($h, $w)
     {
         return round(sqrt(pow($w, 2) + pow($h, 2)), 2);
+    }
+
+    protected function cropFactor($ff, $r)
+    {
+        $fullFrame = $this->diagonal($ff['height'], $ff['width']);
+        $currentValues = $this->diagonal($r['height'], $r['width']);
+
+        return round(($fullFrame / $currentValues), 2);
     }
 }
