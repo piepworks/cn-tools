@@ -35,7 +35,8 @@ class CropfactorController extends Controller
             'width' => $request->query('width') ?? $currentPreset['values']['dimensions']['width'],
         ];
         $results['diagonal'] = $this->diagonal($results['width'], $results['height']);
-        $results['cropfactor'] = $this->cropFactor($fullFrame, $results);
+        $results['cropFactor'] = $this->cropFactor($fullFrame, $results);
+        $results['equivalentFocalLength'] = $this->equivalentFocalLength($results['cropFactor'], $results['focalLength']);
 
         return view ('cropfactor', [
             'presets' => config('cf.presets'),
@@ -55,5 +56,10 @@ class CropfactorController extends Controller
         $currentValues = $this->diagonal($r['height'], $r['width']);
 
         return round(($fullFrame / $currentValues), 2);
+    }
+
+    protected function equivalentFocalLength($cropFactor, $focalLength)
+    {
+        return round(($cropFactor * $focalLength), 2);
     }
 }

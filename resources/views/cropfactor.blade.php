@@ -7,7 +7,8 @@
         <li>Focal Length: {{ $results['focalLength'] }}</li>
         <li>ƒ/stop: {{ $results['fStop'] }}</li>
         <li>Diagonal: {{ $results['diagonal'] }}</li>
-        <li><b>Crop Factor: {{ $results['cropfactor'] }}</b></li>
+        <li><b>Crop Factor: {{ $results['cropFactor'] }}</b></li>
+        <li>Equivalent Focal Length: {{ $results['equivalentFocalLength'] }}mm</li>
     </ul>
 
     <hr>
