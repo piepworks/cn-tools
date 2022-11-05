@@ -37,6 +37,7 @@ class CropfactorController extends Controller
         $results['diagonal'] = $this->diagonal($results['width'], $results['height']);
         $results['cropFactor'] = $this->cropFactor($fullFrame, $results);
         $results['equivalentFocalLength'] = $this->equivalentFocalLength($results['cropFactor'], $results['focalLength']);
+        $results['equivalentFStop'] = $this->equivalentFStop($fullFrame, $results['height'], $results['width'], $results['fStop']);
 
         return view ('cropfactor', [
             'presets' => config('cf.presets'),
@@ -61,5 +62,11 @@ class CropfactorController extends Controller
     protected function equivalentFocalLength($cf, $fl)
     {
         return round(($cf * $fl), 2);
+    }
+
+    protected function equivalentFStop($ff, $h, $w, $fs)
+    {
+        $wideSide = ($w > $h) ? $w : $h;
+        return round(($fs * $ff['width'] / $wideSide), 1);
     }
 }

@@ -9,6 +9,7 @@
         <li>Diagonal: {{ $results['diagonal'] }}</li>
         <li><b>Crop Factor: {{ $results['cropFactor'] }}</b></li>
         <li>Equivalent Focal Length: {{ $results['equivalentFocalLength'] }}mm</li>
+        <li>Equivalent ƒ/stop: {{ $results['equivalentFStop'] }}</li>
     </ul>
 
     <hr>
