@@ -24,16 +24,23 @@ class CropfactorController extends Controller
 
         $currentPreset['values'] = data_get($presets, $fullSelector);
 
-        if ($currentPreset['values'] == null) {
+        if ($currentPreset['selector'] != 'blank' && $currentPreset['values'] == null) {
             abort(404);
         }
 
         $results = [
             'focalLength' => $request->query('focal_length') ?? 50,
             'fStop' => $request->query('f_stop') ?? 1.8,
-            'height' => $request->query('height') ?? $currentPreset['values']['dimensions']['height'],
-            'width' => $request->query('width') ?? $currentPreset['values']['dimensions']['width'],
         ];
+
+        if ($currentPreset['selector'] == 'blank') {
+            $results['height'] = $request->query('height');
+            $results['width'] = $request->query('width');
+        } else {
+            $results['height'] = $currentPreset['values']['dimensions']['height'];
+            $results['width'] = $currentPreset['values']['dimensions']['width'];
+        }
+
         $results['diagonal'] = $this->diagonal($results['width'], $results['height']);
         $results['cropFactor'] = $this->cropFactor($fullFrame, $results);
         $results['equivalentFocalLength'] = $this->equivalentFocalLength($results['cropFactor'], $results['focalLength']);
