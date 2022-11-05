@@ -99,6 +99,6 @@
             </table>
         </fieldset>
 
-        <button>Submit</button>
+        <button class="no-js">Submit</button>
     </form>
 </x-layout>
