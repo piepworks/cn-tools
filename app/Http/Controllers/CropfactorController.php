@@ -9,7 +9,7 @@ class CropfactorController extends Controller
     public function index(Request $request)
     {
         $presets = config('cf.presets');
-        $currentPreset['selector'] = $request->query('preset') ?? 'full';
+        $currentPreset['selector'] = $request->query('preset') ?? 'blank';
         $pieces = explode('.', $currentPreset['selector']);
         $fullFrame = [
             'height' => data_get($presets, 'full')['dimensions']['height'],
@@ -34,8 +34,8 @@ class CropfactorController extends Controller
         ];
 
         if ($currentPreset['selector'] == 'blank') {
-            $results['height'] = $request->query('height');
-            $results['width'] = $request->query('width');
+            $results['height'] = $request->query('height') ?? $fullFrame['height'];
+            $results['width'] = $request->query('width') ?? $fullFrame['width'];
         } else {
             $results['height'] = $currentPreset['values']['dimensions']['height'];
             $results['width'] = $currentPreset['values']['dimensions']['width'];
