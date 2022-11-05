@@ -8,7 +8,6 @@ class CropfactorController extends Controller
 {
     public function index(Request $request)
     {
-        // dd($this->zippy(3));
         $presets = config('cf.presets');
         $currentPreset['selector'] = $request->query('preset') ?? 'full';
         $pieces = explode('.', $currentPreset['selector']);
@@ -29,6 +28,7 @@ class CropfactorController extends Controller
         $results['fStop'] = $request->query('f_stop') ?? 1.8;
         $results['height'] = $request->query('height') ?? $currentPreset['values']['dimensions']['height'];
         $results['width'] = $request->query('width') ?? $currentPreset['values']['dimensions']['width'];
+        $results['diagonal'] = $this->diagonal($results['width'], $results['height']);
 
         return view ('cropfactor', [
             'presets' => config('cf.presets'),
@@ -37,8 +37,8 @@ class CropfactorController extends Controller
         ]);
     }
 
-    protected function zippy($x)
+    protected function diagonal($h, $w)
     {
-        return $x * $x;
+        return round(sqrt(pow($w, 2) + pow($h, 2)), 2);
     }
 }
