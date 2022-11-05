@@ -1,10 +1,10 @@
 <x-layout title="Crop Factor Calculator">
     <h1>Crop Factor Calculator</h1>
 
-    <li>Height: {{ $height }}</li>
-    <li>Width: {{ $width }}</li>
-    <li>Focal Length: {{ $focalLength }}</li>
-    <li>ƒ/stop: {{ $fStop }}</li>
+    <li>Height: {{ $results['height'] }}</li>
+    <li>Width: {{ $results['width'] }}</li>
+    <li>Focal Length: {{ $results['focalLength'] }}</li>
+    <li>ƒ/stop: {{ $results['fStop'] }}</li>
 
     <hr>
 

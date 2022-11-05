@@ -10,8 +10,8 @@ class CropfactorController extends Controller
     {
         // print_r($this->zippy(3));
         $presets = config('cf.presets');
-        $currentPreset = $request->query('preset') ?? 'full';
-        $pieces = explode('.', $currentPreset);
+        $currentPreset['selector'] = $request->query('preset') ?? 'full';
+        $pieces = explode('.', $currentPreset['selector']);
 
         if (count($pieces) > 1) {
             $selector = $pieces[0] . '.presets.' . $pieces[1];
@@ -19,15 +19,16 @@ class CropfactorController extends Controller
             $selector = $pieces[0];
         }
 
-        $output = data_get($presets, $selector);
+        $currentPreset['values'] = data_get($presets, $selector);
+        $results['focalLength'] = $request->query('focal_length') ?? 50;
+        $results['fStop'] = $request->query('f_stop') ?? 1.8;
+        $results['height'] = $request->query('height') ?? $currentPreset['values']['dimensions']['height'];
+        $results['width'] = $request->query('width') ?? $currentPreset['values']['dimensions']['width'];
 
         return view ('cropfactor', [
             'presets' => config('cf.presets'),
             'currentPreset' => $currentPreset,
-            'height' => $request->query('height') ?? $output['dimensions']['height'],
-            'width' => $request->query('width') ?? $output['dimensions']['width'],
-            'focalLength' => $request->query('focal_length') ?? 50,
-            'fStop' => $request->query('f_stop') ?? 1.8,
+            'results' => $results,
         ]);
     }
 
