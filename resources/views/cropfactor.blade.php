@@ -1,21 +1,6 @@
 <x-layout title="Crop Factor Calculator">
     <h1>Crop Factor Calculator</h1>
 
-    <ul>
-        <li>Height: {{ $results['height'] }}</li>
-        <li>Width: {{ $results['width'] }}</li>
-        <li>Focal Length: {{ $results['focalLength'] }}</li>
-        <li>ƒ/stop: {{ $results['fStop'] }}</li>
-        <li>Diagonal: {{ $results['diagonal'] }}</li>
-        <li><b>Crop Factor: {{ $results['cropFactor'] }}</b></li>
-        <li>Equivalent Focal Length: {{ $results['equivalentFocalLength'] }}mm</li>
-        <li>Equivalent ƒ/stop: {{ $results['equivalentFStop'] }}</li>
-        <li>Aspect Ratio: {{ $results['aspectRatio'] }}</li>
-        <li>Aspect Ratio Decimal: {{ $results['aspectRatioDecimal'] }}</li>
-    </ul>
-
-    <hr>
-
     <form>
         <fieldset>
             <legend>1</legend>
@@ -84,6 +69,34 @@
         </fieldset>
         <fieldset>
             <legend>3</legend>
+            <table>
+                <tr>
+                    <td><a target="_blank" rel="noopener" href="https://www.bhphotovideo.com/explora/photography/tips-and-solutions/understanding-crop-factor">Crop factor</a></td>
+                    <td>&times; <b id="results_cropfactor">{{ $results['cropFactor'] }}</b></td>
+                </tr>
+                <tr>
+                    <td><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/135_film#Image_format">8-perf 35mm</a> equivalent focal length</td>
+                    <td><b id="results_equivalent_focal_length">{{ $results['equivalentFocalLength'] }}</b>mm</td>
+                </tr>
+                <tr>
+                    <td>
+                        <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/135_film#Image_format">8-perf 35mm</a>
+                        equivalent ƒ/stop (same <a target="_blank" rel="noopener" href="http://yedlin.net/lens_blur.html">blur circles</a>)
+                    </td>
+                    <td>ƒ/<b id="results_equivalent_f_stop">{{ $results['equivalentFStop'] }}</b></td>
+                </tr>
+                <tr>
+                    <td><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Aspect_ratio_(image)">Aspect ratio</a></td>
+                    <td>
+                        <span id="js-aspect-ratio" @if (!$results['aspectRatio']) class="hidden"@endif>
+                            <b id="results_aspect_ratio">{{ $results['aspectRatio'] }}</b>
+                            &nbsp;or&nbsp;
+                        </span>
+
+                        <b id="results_aspect_ratio_decimal">{{ $results['aspectRatioDecimal'] }}</b>
+                    </td>
+                </tr>
+            </table>
         </fieldset>
 
         <button>Submit</button>
