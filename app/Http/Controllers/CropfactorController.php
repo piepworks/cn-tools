@@ -38,6 +38,8 @@ class CropfactorController extends Controller
         $results['cropFactor'] = $this->cropFactor($fullFrame, $results);
         $results['equivalentFocalLength'] = $this->equivalentFocalLength($results['cropFactor'], $results['focalLength']);
         $results['equivalentFStop'] = $this->equivalentFStop($fullFrame, $results['height'], $results['width'], $results['fStop']);
+        $results['aspectRatio'] = $this->aspectRatio($results['height'], $results['width']);
+        $results['aspectRatioDecimal'] = $this->aspectRatioDecimal($results['height'], $results['width']);
 
         return view ('cropfactor', [
             'presets' => config('cf.presets'),
@@ -68,5 +70,23 @@ class CropfactorController extends Controller
     {
         $wideSide = ($w > $h) ? $w : $h;
         return round(($fs * $ff['width'] / $wideSide), 1);
+    }
+
+    protected function aspectRatio($h, $w)
+    {
+        $r = intval(gmp_gcd($h, $w));
+        $x = $w / $r;
+        $y = $h / $r;
+
+        $value = "${x}:${y}";
+
+        // If the aspect ratio doesn’t come out clean, return an empty string.
+        return (strlen($value) <= 5) ? $value : '';
+    }
+
+    protected function aspectRatioDecimal($h, $w)
+    {
+        $ratio = ($w > $h) ? ($w / $h) : ($h / $w);
+        return round($ratio, 2);
     }
 }

@@ -10,6 +10,8 @@
         <li><b>Crop Factor: {{ $results['cropFactor'] }}</b></li>
         <li>Equivalent Focal Length: {{ $results['equivalentFocalLength'] }}mm</li>
         <li>Equivalent ƒ/stop: {{ $results['equivalentFStop'] }}</li>
+        <li>Aspect Ratio: {{ $results['aspectRatio'] }}</li>
+        <li>Aspect Ratio Decimal: {{ $results['aspectRatioDecimal'] }}</li>
     </ul>
 
     <hr>
@@ -20,7 +22,7 @@
                 @if (@isset($preset['presets']))
                     <optgroup label="{{ $preset['name'] }}">
                     @foreach ($preset['presets'] as $subKey => $subPreset)
-                        <option value="{{ $key }}.{{ $subKey }}"@if ($currentPreset['selector'] == $key . '.' . $subKey) selected @endif>
+                        <option value="{{ $key }}.{{ $subKey }}"@if ($currentPreset['selector'] == "${key}.${subKey}") selected @endif>
                             {{ $subPreset['name'] }}
                         </option>
                     @endforeach
