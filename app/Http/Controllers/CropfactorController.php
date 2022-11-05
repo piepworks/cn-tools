@@ -9,12 +9,9 @@ class CropfactorController extends Controller
     public function index(Request $request)
     {
         // print_r($this->zippy(3));
-        // print_r(config('cf.presets.aps-ch.items'));
         $presets = config('cf.presets');
-        // print_r($presets);
-
-        $preset = 'aps-ch/nikon-apsc';
-        $pieces = explode('.', $preset);
+        $currentPreset = $request->query('preset') ?? 'full';
+        $pieces = explode('.', $currentPreset);
 
         if (count($pieces) > 1) {
             $selector = $pieces[0] . '.presets.' . $pieces[1];
@@ -22,16 +19,15 @@ class CropfactorController extends Controller
             $selector = $pieces[0];
         }
 
-        // $output = data_get($presets, $selector);
-        // dd($output['dimensions']);
+        $output = data_get($presets, $selector);
 
         return view ('cropfactor', [
             'presets' => config('cf.presets'),
-            'currentPreset' => $request->query('preset') ?? 'full',
-            // 'height' => $request->query('height') ?? null,
-            // 'width' => $request->query('width') ?? null,
-            // 'focalLength' => $request->query('focal_length') ?? 50,
-            // 'fStop' => $request->query('f_stop') ?? 1.8,
+            'currentPreset' => $currentPreset,
+            'height' => $request->query('height') ?? $output['dimensions']['height'],
+            'width' => $request->query('width') ?? $output['dimensions']['width'],
+            'focalLength' => $request->query('focal_length') ?? 50,
+            'fStop' => $request->query('f_stop') ?? 1.8,
         ]);
     }
 
