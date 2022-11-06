@@ -96,5 +96,10 @@
         </table>
     </fieldset>
 
-    <button class="no-js">Submit</button>
+    <div>
+        <button class="no-js">Submit</button>
+        @if(count(Request::query()))
+        <a href="/cropfactor" hx-target="form" hx-get="/cropfactor">Reset form</a>
+        @endif
+    </div>
 </form>
