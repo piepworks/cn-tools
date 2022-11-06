@@ -1,4 +1,4 @@
-<form>
+<form hx-push-url="true">
     <fieldset>
         <legend>1</legend>
         <div>
@@ -31,7 +31,7 @@
                     enter
                     <label>
                         height:
-                        <input type="number" name="height" size="5" value="{{ $results['height'] }}">
+                        <input type="number" name="height" size="5" value="{{ $results['height'] }}" hx-target="form" hx-trigger="keyup delay:500ms" hx-get="/cropfactor">
                         <span class="subdued">mm</span>
                     </label>
                 </div>
@@ -39,7 +39,7 @@
                     &nbsp;×
                     <label>
                         width:
-                        <input type="number" name="width" size="5" value="{{ $results['width'] }}">
+                        <input type="number" name="width" size="5" value="{{ $results['width'] }}" hx-target="form" hx-trigger="keyup delay:500ms" hx-get="/cropfactor">
                         <span class="subdued">mm</span>
                     </label>
                 </div>
@@ -52,7 +52,7 @@
         <div>
             <label>
                 Enter focal length:
-                <input type="number" name="focal_length" size="4" value="{{ $results['focalLength'] }}">
+                <input type="number" name="focal_length" size="4" value="{{ $results['focalLength'] }}" hx-target="form" hx-trigger="keyup delay:500ms" hx-get="/cropfactor">
                 <span class="subdued">mm</span>
             </label>
         </div>
@@ -60,7 +60,7 @@
             <label>
                 Enter ƒ/stop:
                 <span class="subdued">ƒ/</span>
-                <input type="number" name="f_stop" size="4" value={{ $results['fStop'] }}>
+                <input type="number" name="f_stop" size="4" value={{ $results['fStop'] }} hx-target="form" hx-trigger="keyup delay:500ms" hx-get="/cropfactor">
             </label>
         </div>
     </fieldset>
