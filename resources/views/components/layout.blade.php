@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@if (@isset($title)) {{ $title }} / @endif Tools / Cassette Nest</title>
     <link rel="stylesheet" href="/main.css">
-    <script src="/htmx-1.8.4.min.js"></script>
-    <script src="/idiomorph-ext-0.0.7.min.js"></script>
+    <script src="/htmx-1.9.4.min.js"></script>
+    <script src="/idiomorph-ext-0.0.8.min.js"></script>
 </head>
 <body>
     <div id="root">
