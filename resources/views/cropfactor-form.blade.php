@@ -60,7 +60,7 @@
             <label>
                 Enter ƒ/stop:
                 <span class="subdued">ƒ/</span>
-                <input type="number" name="f_stop" size="4" value={{ $results['fStop'] }}>
+                <input type="text" name="f_stop" size="4" value="{{ $results['fStop'] }}">
             </label>
         </div>
     </fieldset>
