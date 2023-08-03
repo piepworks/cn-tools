@@ -68,22 +68,22 @@
         <legend>3</legend>
         <table>
             <tr>
-                <td><a target="_blank" rel="noopener" href="https://www.bhphotovideo.com/explora/photography/tips-and-solutions/understanding-crop-factor">Crop factor</a></td>
+                <td><a target="_blank" href="https://www.bhphotovideo.com/explora/photography/tips-and-solutions/understanding-crop-factor">Crop factor</a></td>
                 <td>&times; <b id="results_cropfactor">{{ $results['cropFactor'] }}</b></td>
             </tr>
             <tr>
-                <td><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/135_film#Image_format">8-perf 35mm</a> equivalent focal length</td>
+                <td><a target="_blank" href="https://en.wikipedia.org/wiki/135_film#Image_format">8-perf 35mm</a> equivalent focal length</td>
                 <td><b id="results_equivalent_focal_length">{{ $results['equivalentFocalLength'] }}</b>mm</td>
             </tr>
             <tr>
                 <td>
-                    <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/135_film#Image_format">8-perf 35mm</a>
-                    equivalent ƒ/stop (same <a target="_blank" rel="noopener" href="http://yedlin.net/lens_blur.html">blur circles</a>)
+                    <a target="_blank" href="https://en.wikipedia.org/wiki/135_film#Image_format">8-perf 35mm</a>
+                    equivalent ƒ/stop (same <a target="_blank" href="http://yedlin.net/lens_blur.html">blur circles</a>)
                 </td>
                 <td>ƒ/<b id="results_equivalent_f_stop">{{ $results['equivalentFStop'] }}</b></td>
             </tr>
             <tr>
-                <td><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Aspect_ratio_(image)">Aspect ratio</a></td>
+                <td><a target="_blank" href="https://en.wikipedia.org/wiki/Aspect_ratio_(image)">Aspect ratio</a></td>
                 <td>
                     <span id="js-aspect-ratio" @if (!$results['aspectRatio']) class="hidden"@endif>
                         <b id="results_aspect_ratio">{{ $results['aspectRatio'] }}</b>
@@ -92,6 +92,10 @@
 
                     <b id="results_aspect_ratio_decimal">{{ $results['aspectRatioDecimal'] }}</b>
                 </td>
+            </tr>
+            <tr>
+                <td><a target="_blank" href="https://shuttermuse.com/calculate-field-of-view-camera-lens/">Angle of view</a></td>
+                <td><b>{{ $results['angleOfView'] }}</b>º</td>
             </tr>
         </table>
     </fieldset>

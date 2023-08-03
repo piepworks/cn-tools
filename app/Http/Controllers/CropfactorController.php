@@ -47,6 +47,14 @@ class CropfactorController extends Controller
         $results['equivalentFStop'] = $this->equivalentFStop($fullFrame, $results['height'], $results['width'], $results['fStop']);
         $results['aspectRatio'] = $this->aspectRatio($results['height'], $results['width']);
         $results['aspectRatioDecimal'] = $this->aspectRatioDecimal($results['height'], $results['width']);
+        $results['angleOfView'] =
+            round(2 *
+                atan(
+                    $results['width'] /
+                    (2 * $results['focalLength'])
+                )
+                * (180 / pi()),
+            1);
 
         $context = [
             'presets' => config('cf.presets'),
