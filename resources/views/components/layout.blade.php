@@ -15,5 +15,6 @@
         {{ $slot }}
     </div>
     <script>document.body.classList.add('has-js');</script>
+    @stack('scripts')
 </body>
 </html>
