@@ -13,6 +13,13 @@ var svg = d3
     .attr("width", 200)
     .attr("height", 200);
 
+svg.append("circle")
+    .attr("transform", "translate(100,100)")
+    .attr("cx", 0)
+    .attr("xy", 0)
+    .attr("r", 90)
+    .attr("fill", "papayawhip");
+
 svg.append("path")
     .attr("transform", "translate(100,100)")
     .attr(
