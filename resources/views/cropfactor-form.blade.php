@@ -64,7 +64,7 @@
             </label>
         </div>
     </fieldset>
-    <fieldset>
+    <fieldset style="padding-bottom: 0;">
         <legend>3</legend>
         <table>
             <tr>
@@ -94,13 +94,16 @@
                 </td>
             </tr>
             <tr>
-                <td><a target="_blank" href="https://shuttermuse.com/calculate-field-of-view-camera-lens/">Angle of view</a></td>
-                <td><b>{{ $results['angleOfView'] }}</b>º</td>
+                <td style="display: flex; justify-content: space-between; align-items: center">
+                    <div><a target="_blank" href="https://shuttermuse.com/calculate-field-of-view-camera-lens/">Angle of view</a></div>
+                    <div id="angle_of_view" style="margin: 0;"></div>
+                </td>
+                <td>
+                    <b>{{ $results['angleOfView'] }}</b>º
+                </td>
             </tr>
         </table>
     </fieldset>
-
-    <div id="angle_of_view"></div>
 
     <div>
         <button class="no-js">Submit</button>
@@ -118,24 +121,24 @@
             let svg = d3
             .select("#angle_of_view")
             .append("svg")
-            .attr("width", 200)
-            .attr("height", 200);
+            .attr("width", 50)
+            .attr("height", 50);
 
             svg.append("circle")
-                .attr("transform", "translate(100,100)")
+                .attr("transform", "translate(25,25)")
                 .attr("cx", 0)
                 .attr("xy", 0)
-                .attr("r", 90)
+                .attr("r", 25)
                 .attr("fill", "papayawhip");
 
             svg.append("path")
-                .attr("transform", "translate(100,100)")
+                .attr("transform", "translate(25,25)")
                 .attr(
                     "d",
                     d3
                         .arc()
                         .innerRadius(0)
-                        .outerRadius(90)
+                        .outerRadius(25)
                         .startAngle(-degToRad(angle / 2) + degToRad(90))
                         .endAngle(degToRad(angle / 2) + degToRad(90))
                 )
