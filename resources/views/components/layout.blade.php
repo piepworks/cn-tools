@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/main.css">
     <script src="/htmx-1.9.4.min.js"></script>
     <script src="/idiomorph-ext-0.0.8.min.js"></script>
+    <script src="/d3.v7.min.js"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>

@@ -100,10 +100,49 @@
         </table>
     </fieldset>
 
+    <div id="angle_of_view"></div>
+
     <div>
         <button class="no-js">Submit</button>
         @if(count(Request::query()))
         <a href="/cropfactor" hx-target="form" hx-get="/cropfactor">Reset form</a>
         @endif
     </div>
+    <script>
+        window.degToRad = (degrees) => {
+            return degrees * (Math.PI / 180);
+        };
+
+        window.angleOfView = (angle) => {
+            console.log('angle', angle);
+            let svg = d3
+            .select("#angle_of_view")
+            .append("svg")
+            .attr("width", 200)
+            .attr("height", 200);
+
+            svg.append("circle")
+                .attr("transform", "translate(100,100)")
+                .attr("cx", 0)
+                .attr("xy", 0)
+                .attr("r", 90)
+                .attr("fill", "papayawhip");
+
+            svg.append("path")
+                .attr("transform", "translate(100,100)")
+                .attr(
+                    "d",
+                    d3
+                        .arc()
+                        .innerRadius(0)
+                        .outerRadius(90)
+                        .startAngle(-degToRad(angle / 2) + degToRad(90))
+                        .endAngle(degToRad(angle / 2) + degToRad(90))
+                )
+                .attr("stroke", "transparent")
+                .attr("fill", "dodgerblue");
+        };
+
+        angleOfView({{ $results['angleOfView'] }});
+    </script>
 </form>
