@@ -1,0 +1,151 @@
+@import "../../node_modules/normalize.css/normalize.css";
+
+body {
+    font-size: 14px;
+    font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    /* background: rgba(0, 0, 0, 0.9); */
+}
+
+#root {
+    padding: 2rem 1.5rem;
+    min-height: 100vh;
+    background: #fff;
+}
+
+h1 {
+    margin-bottom: 2rem;
+}
+
+fieldset {
+    margin-bottom: 10px;
+    padding: 10px 15px 18px;
+    max-width: 450px;
+}
+
+fieldset b,
+fieldset input,
+fieldset select {
+    font-size: 16px;
+}
+fieldset div {
+    margin: 5px 0 0;
+}
+fieldset div:first-of-type {
+    margin: 0;
+}
+fieldset input[type="number"] {
+    width: 2.5em;
+    -moz-appearance: textfield;
+}
+fieldset input[type="number"]::-webkit-outer-spin-button,
+fieldset input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.subdued {
+    color: #888;
+    font-size: 12px;
+}
+
+hr {
+    margin-top: 5rem;
+    border: 0.25rem solid #eee;
+}
+
+table {
+    border-spacing: 0;
+    width: 100%;
+}
+
+td {
+    border-bottom: 1px solid #ccc;
+    padding: 8px 0;
+    line-height: 1.5;
+}
+
+td:last-child {
+    padding-left: 10px;
+}
+
+tr:last-child td {
+    border: 0;
+}
+
+body.has-js .no-js,
+.hidden {
+    display: none;
+}
+
+.wrap {
+    margin-top: 0;
+}
+
+.nowrap {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+/* --- */
+/* Nav */
+/* --- */
+
+.c-site-nav {
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid #555;
+    margin: -2rem -1.5rem 2rem;
+}
+
+.c-site-nav a {
+    text-decoration: none;
+    color: #ccc;
+}
+
+.c-site-nav a:hover {
+    text-decoration: underline;
+    background: none;
+}
+
+.film-icon {
+    height: 35px;
+    width: 35px;
+}
+
+/* ------ */
+/* Footer */
+/* ------ */
+
+#root > footer {
+    margin-top: 4rem;
+    padding-bottom: 3rem;
+    font-size: 0.6rem;
+}
+
+#root > footer .policies {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+#root > footer .policies li + li {
+    margin-left: 0.5rem;
+}
+
+/* ----- */
+/* Links */
+/* ----- */
+
+a {
+    cursor: pointer; /* For the sake of JS-created links without `href`s. */
+    color: #0b67c4;
+    text-decoration: underline;
+}
+
+a:hover {
+    background: #eaf4fe;
+    color: rgba(0, 0, 0, 0.9);
+}
