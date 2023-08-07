@@ -100,10 +100,10 @@
                 </td>
             </tr>
             <tr>
-                <td style="display: flex; justify-content: space-between; align-items: center">
+                <td class="angle-of-view">
                     <div><a target="_blank" href="https://shuttermuse.com/calculate-field-of-view-camera-lens/">Angle of
                             view</a></div>
-                    <div id="angle_of_view" hx-preserve style="margin: 0;"></div>
+                    <div id="d3" hx-preserve></div>
                 </td>
                 <td>
                     <b>{{ $results['angleOfView'] }}</b>º

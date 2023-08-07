@@ -3,7 +3,6 @@
 body {
     font-size: 14px;
     font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    /* background: rgba(0, 0, 0, 0.9); */
 }
 
 #root {
@@ -86,53 +85,14 @@ body.has-js .no-js,
     white-space: nowrap;
 }
 
-/* --- */
-/* Nav */
-/* --- */
-
-.c-site-nav {
-    background: rgba(0, 0, 0, 0.9);
+.angle-of-view {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.6rem 1rem;
-    border-bottom: 1px solid #555;
-    margin: -2rem -1.5rem 2rem;
 }
 
-.c-site-nav a {
-    text-decoration: none;
-    color: #ccc;
-}
-
-.c-site-nav a:hover {
-    text-decoration: underline;
-    background: none;
-}
-
-.film-icon {
-    height: 35px;
-    width: 35px;
-}
-
-/* ------ */
-/* Footer */
-/* ------ */
-
-#root > footer {
-    margin-top: 4rem;
-    padding-bottom: 3rem;
-    font-size: 0.6rem;
-}
-
-#root > footer .policies {
-    list-style: none;
-    padding: 0;
-    display: flex;
-}
-
-#root > footer .policies li + li {
-    margin-left: 0.5rem;
+#d3 {
+    margin: 0;
 }
 
 /* ----- */

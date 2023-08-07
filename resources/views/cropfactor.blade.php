@@ -18,7 +18,7 @@
             };
 
             const svg = d3
-                .select('#angle_of_view')
+                .select('#d3')
                 .append('svg')
                 .attr('width', 50)
                 .attr('height', 50);
