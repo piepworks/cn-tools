@@ -9,11 +9,12 @@
                     @foreach ($presets as $key => $preset)
                         @if (@isset($preset['presets']))
                             <optgroup label="{{ $preset['name'] }}">
-                            @foreach ($preset['presets'] as $subKey => $subPreset)
-                                <option value="{{ $key }}.{{ $subKey }}"@if ($currentPreset['selector'] == "${key}.${subKey}") selected @endif>
-                                    {{ $subPreset['name'] }}
-                                </option>
-                            @endforeach
+                                @foreach ($preset['presets'] as $subKey => $subPreset)
+                                    <option
+                                        value="{{ $key }}.{{ $subKey }}"@if ($currentPreset['selector'] == "${key}.${subKey}") selected @endif>
+                                        {{ $subPreset['name'] }}
+                                    </option>
+                                @endforeach
                             </optgroup>
                         @else
                             <option value="{{ $key }}"@if ($currentPreset['selector'] == $key) selected @endif>
@@ -44,7 +45,9 @@
                     </label>
                 </div>
             </div>
-            <div class="subdued @if (!$results['diagonal']) hidden @endif">(diagonal = <span>{{ $results['diagonal'] }}</span>mm)</div>
+            <div class="subdued @if (!$results['diagonal']) hidden @endif">(diagonal =
+                <span>{{ $results['diagonal'] }}</span>mm)
+            </div>
         </div>
     </fieldset>
     <fieldset>
@@ -68,11 +71,14 @@
         <legend>3</legend>
         <table>
             <tr>
-                <td><a target="_blank" href="https://www.bhphotovideo.com/explora/photography/tips-and-solutions/understanding-crop-factor">Crop factor</a></td>
+                <td><a target="_blank"
+                        href="https://www.bhphotovideo.com/explora/photography/tips-and-solutions/understanding-crop-factor">Crop
+                        factor</a></td>
                 <td>&times; <b id="results_cropfactor">{{ $results['cropFactor'] }}</b></td>
             </tr>
             <tr>
-                <td><a target="_blank" href="https://en.wikipedia.org/wiki/135_film#Image_format">8-perf 35mm</a> equivalent focal length</td>
+                <td><a target="_blank" href="https://en.wikipedia.org/wiki/135_film#Image_format">8-perf 35mm</a>
+                    equivalent focal length</td>
                 <td><b id="results_equivalent_focal_length">{{ $results['equivalentFocalLength'] }}</b>mm</td>
             </tr>
             <tr>
@@ -85,7 +91,7 @@
             <tr>
                 <td><a target="_blank" href="https://en.wikipedia.org/wiki/Aspect_ratio_(image)">Aspect ratio</a></td>
                 <td>
-                    <span id="js-aspect-ratio" @if (!$results['aspectRatio']) class="hidden"@endif>
+                    <span id="js-aspect-ratio" @if (!$results['aspectRatio']) class="hidden" @endif>
                         <b id="results_aspect_ratio">{{ $results['aspectRatio'] }}</b>
                         or
                     </span>
@@ -95,8 +101,9 @@
             </tr>
             <tr>
                 <td style="display: flex; justify-content: space-between; align-items: center">
-                    <div><a target="_blank" href="https://shuttermuse.com/calculate-field-of-view-camera-lens/">Angle of view</a></div>
-                    <div id="angle_of_view" style="margin: 0;"></div>
+                    <div><a target="_blank" href="https://shuttermuse.com/calculate-field-of-view-camera-lens/">Angle of
+                            view</a></div>
+                    <div id="angle_of_view" hx-preserve style="margin: 0;"></div>
                 </td>
                 <td>
                     <b>{{ $results['angleOfView'] }}</b>º
@@ -107,45 +114,14 @@
 
     <div>
         <button class="no-js">Submit</button>
-        @if(count(Request::query()))
-        <a href="/cropfactor" hx-target="form" hx-get="/cropfactor">Reset form</a>
+        @if (count(Request::query()))
+            <a href="/cropfactor" hx-target="form" hx-get="/cropfactor">Reset form</a>
         @endif
     </div>
+
     <script>
-        window.degToRad = (degrees) => {
-            return degrees * (Math.PI / 180);
-        };
-
-        window.angleOfView = (angle) => {
-            console.log('angle', angle);
-            let svg = d3
-            .select("#angle_of_view")
-            .append("svg")
-            .attr("width", 50)
-            .attr("height", 50);
-
-            svg.append("circle")
-                .attr("transform", "translate(25,25)")
-                .attr("cx", 0)
-                .attr("xy", 0)
-                .attr("r", 25)
-                .attr("fill", "papayawhip");
-
-            svg.append("path")
-                .attr("transform", "translate(25,25)")
-                .attr(
-                    "d",
-                    d3
-                        .arc()
-                        .innerRadius(0)
-                        .outerRadius(25)
-                        .startAngle(-degToRad(angle / 2) + degToRad(90))
-                        .endAngle(degToRad(angle / 2) + degToRad(90))
-                )
-                .attr("stroke", "transparent")
-                .attr("fill", "dodgerblue");
-        };
-
-        angleOfView({{ $results['angleOfView'] }});
+        if (typeof angleOfView === 'function') {
+            angleOfView({{ $results['angleOfView'] }});
+        }
     </script>
 </form>
