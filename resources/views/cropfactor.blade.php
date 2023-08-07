@@ -1,12 +1,15 @@
 <x-layout title="Crop Factor Calculator">
     <h1>Crop Factor Calculator</h1>
 
+    @include('cropfactor-form')
+
     @push('scripts')
         <script>
             const angle = {{ $results['angleOfView'] }};
-            const degToRad = (degrees) => degrees * (Math.PI / 180);
-            const startAngle = (angle) => -degToRad(angle / 2) + degToRad(90);
-            const endAngle = (angle) => degToRad(angle / 2) + degToRad(90);
+            const degToRad = degrees => degrees * (Math.PI / 180);
+            const startAngle = angle => -degToRad(angle / 2) + degToRad(90);
+            const endAngle = angle => degToRad(angle / 2) + degToRad(90);
+            const currentAngle = () => document.getElementById('current-angle').innerHTML;
 
             const createArc = (angle) => {
                 return d3
@@ -42,8 +45,8 @@
             const angleOfView = (angle) => {
                 svg.selectChild('path').attr('d', createArc(angle));
             }
+
+            document.body.addEventListener('htmx:afterSwap', () => angleOfView(currentAngle()));
         </script>
     @endpush
-
-    @include('cropfactor-form')
 </x-layout>

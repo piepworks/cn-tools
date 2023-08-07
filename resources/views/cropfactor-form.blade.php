@@ -106,7 +106,7 @@
                     <div id="d3" hx-preserve></div>
                 </td>
                 <td>
-                    <b>{{ $results['angleOfView'] }}</b>º
+                    <b id="current-angle">{{ $results['angleOfView'] }}</b>º
                 </td>
             </tr>
         </table>
@@ -118,10 +118,4 @@
             <a href="/cropfactor" hx-target="form" hx-get="/cropfactor">Reset form</a>
         @endif
     </div>
-
-    <script>
-        if (typeof angleOfView === 'function') {
-            angleOfView({{ $results['angleOfView'] }});
-        }
-    </script>
 </form>
