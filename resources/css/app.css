@@ -85,14 +85,8 @@ body.has-js .no-js,
     white-space: nowrap;
 }
 
-.angle-of-view {
-    display: flex;
-    align-items: center;
-}
-
 #d3 {
-    margin: 0;
-    margin-left: 8rem;
+    text-align: center;
 }
 
 /* ----- */

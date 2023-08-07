@@ -67,7 +67,7 @@
             </label>
         </div>
     </fieldset>
-    <fieldset style="padding-bottom: 0;">
+    <fieldset>
         <legend>3</legend>
         <table>
             <tr>
@@ -103,14 +103,15 @@
                 <td class="angle-of-view">
                     <div><a target="_blank" href="https://shuttermuse.com/calculate-field-of-view-camera-lens/">Angle of
                             view</a></div>
-                    <div id="d3" hx-preserve></div>
                 </td>
                 <td>
                     <b id="current-angle">{{ $results['angleOfView'] }}</b>º
                 </td>
             </tr>
         </table>
+        <div id="d3" hx-preserve></div>
     </fieldset>
+
 
     <div>
         <button class="no-js">Submit</button>
