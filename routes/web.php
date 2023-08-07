@@ -15,7 +15,7 @@ use App\Http\Controllers\CropfactorController;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return redirect()->route('cropfactor');
 });
 
 Route::get('/cropfactor', [CropfactorController::class, 'index'])->name('cropfactor');
