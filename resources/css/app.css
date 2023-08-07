@@ -87,12 +87,12 @@ body.has-js .no-js,
 
 .angle-of-view {
     display: flex;
-    justify-content: space-between;
     align-items: center;
 }
 
 #d3 {
     margin: 0;
+    margin-left: 8rem;
 }
 
 /* ----- */
