@@ -1,0 +1,106 @@
+@import "../../node_modules/normalize.css/normalize.css";
+
+body {
+    font-size: 14px;
+    font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#root {
+    padding: 2rem 1.5rem;
+    min-height: 100vh;
+    background: #fff;
+}
+
+h1 {
+    margin-bottom: 2rem;
+}
+
+fieldset {
+    margin-bottom: 10px;
+    padding: 10px 15px 18px;
+    max-width: 450px;
+}
+
+fieldset b,
+fieldset input,
+fieldset select {
+    font-size: 16px;
+}
+fieldset div {
+    margin: 5px 0 0;
+}
+fieldset div:first-of-type {
+    margin: 0;
+}
+fieldset input[type="number"] {
+    width: 2.5em;
+    -moz-appearance: textfield;
+}
+fieldset input[type="number"]::-webkit-outer-spin-button,
+fieldset input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.subdued {
+    color: #888;
+    font-size: 12px;
+}
+
+hr {
+    margin-top: 5rem;
+    border: 0.25rem solid #eee;
+}
+
+table {
+    border-spacing: 0;
+    width: 100%;
+}
+
+td {
+    border-bottom: 1px solid #ccc;
+    padding: 8px 0;
+    line-height: 1.5;
+}
+
+td:last-child {
+    padding-left: 10px;
+    text-align: right;
+}
+
+tr:last-child td {
+    border: 0;
+}
+
+body.has-js .no-js,
+.hidden {
+    display: none;
+}
+
+.wrap {
+    margin-top: 0;
+}
+
+.nowrap {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+#d3 {
+    text-align: center;
+}
+
+/* ----- */
+/* Links */
+/* ----- */
+
+a {
+    cursor: pointer; /* For the sake of JS-created links without `href`s. */
+    color: #0b67c4;
+    text-decoration: underline;
+}
+
+a:hover {
+    background: #eaf4fe;
+    color: rgba(0, 0, 0, 0.9);
+}
