@@ -1,5 +1,8 @@
 {
     "files.associations": {
         "*.php": "blade"
+    },
+    "[dockerfile]": {
+        "editor.formatOnSave": false
     }
 }
