@@ -95,7 +95,11 @@ class CropfactorController extends Controller
 
     protected function aspectRatio($h, $w)
     {
-        $r = intval(gmp_gcd(intval($h), intval($w)));
+        function gcd($a,$b) {
+            return ($a % $b) ? gcd($b,$a % $b) : $b;
+        }
+
+        $r = intval(gcd(intval($h), intval($w)));
         $x = $w / $r;
         $y = $h / $r;
 
