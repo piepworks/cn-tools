@@ -46,34 +46,24 @@
                 svg.selectChild('path').attr('d', createArc(angle));
             }
 
-            // htmx.logAll();
-
             document.body.addEventListener('htmx:afterSwap', () => angleOfView(currentAngle()));
 
             document.body.addEventListener('htmx:configRequest', evt => {
                 // Remove things from the querystring depending on what triggered the change.
                 const triggeringElementName = evt.detail.triggeringEvent.originalTarget.name;
 
-                console.log(triggeringElementName);
-                console.log('before', evt.detail.parameters);
-
                 if (triggeringElementName === 'preset') {
-                    console.log('triggered by preset');
                     delete evt.detail.parameters.height;
                     delete evt.detail.parameters.width;
                 } else {
                     if (triggeringElementName === 'height' || triggeringElementName === 'width') {
-                        console.log('triggered by height or width');
                         delete evt.detail.parameters.preset;
                     }
                     if (triggeringElementName !== 'height' && triggeringElementName !== 'width') {
-                        console.log('triggered by something other than height, width, or preset');
                         delete evt.detail.parameters.height;
                         delete evt.detail.parameters.width;
                     }
                 }
-
-                console.log('after', evt.detail.parameters);
             });
         </script>
     @endpush
