@@ -116,7 +116,7 @@
     <div>
         <button class="no-js">Submit</button>
         @if (count(Request::query()))
-            <a href="/cropfactor" hx-target="form" hx-get="/cropfactor">Reset form</a>
+            <a href="{{ route('cropfactor') }}" hx-target="form" hx-get="{{ route('cropfactor') }}">Reset form</a>
         @endif
     </div>
 </form>
