@@ -50,7 +50,7 @@
 
             document.body.addEventListener('htmx:configRequest', evt => {
                 // Remove things from the querystring depending on what triggered the change.
-                const triggeringElementName = evt.detail.triggeringEvent.originalTarget.name;
+                const triggeringElementName = evt.detail.triggeringEvent.target.name;
 
                 if (triggeringElementName === 'preset') {
                     delete evt.detail.parameters.height;
