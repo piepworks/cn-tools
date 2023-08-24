@@ -32,14 +32,8 @@ fieldset div {
 fieldset div:first-of-type {
     margin: 0;
 }
-fieldset input[type="number"] {
+fieldset input {
     width: 2.5em;
-    -moz-appearance: textfield;
-}
-fieldset input[type="number"]::-webkit-outer-spin-button,
-fieldset input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
 }
 
 .subdued {

@@ -32,7 +32,7 @@
                     enter
                     <label>
                         height:
-                        <input type="number" name="height" size="5" value="{{ $results['height'] }}">
+                        <input name="height" size="5" value="{{ $results['height'] }}">
                         <span class="subdued">mm</span>
                     </label>
                 </div>
@@ -40,7 +40,7 @@
                     &nbsp;×
                     <label>
                         width:
-                        <input type="number" name="width" size="5" value="{{ $results['width'] }}">
+                        <input name="width" size="5" value="{{ $results['width'] }}">
                         <span class="subdued">mm</span>
                     </label>
                 </div>
@@ -55,7 +55,7 @@
         <div>
             <label>
                 Enter focal length:
-                <input type="number" name="focal_length" size="4" value="{{ $results['focalLength'] }}">
+                <input name="focal_length" size="4" value="{{ $results['focalLength'] }}">
                 <span class="subdued">mm</span>
             </label>
         </div>
