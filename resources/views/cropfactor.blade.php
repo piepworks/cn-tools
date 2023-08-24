@@ -31,7 +31,7 @@
                 .attr('cx', 0)
                 .attr('xy', 0)
                 .attr('r', 25)
-                .attr('fill', 'papayawhip');
+                .attr('fill', 'var(--svg-fill)');
 
             const slice = svg.append('path')
                 .attr('transform', 'translate(25,25)')
@@ -40,7 +40,7 @@
                     createArc(angle),
                 )
                 .attr('stroke', 'transparent')
-                .attr('fill', 'dodgerblue');
+                .attr('fill', 'var(--svg-wedge)');
 
             const angleOfView = (angle) => {
                 svg.selectChild('path').attr('d', createArc(angle));

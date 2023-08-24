@@ -1,5 +1,25 @@
 @import "../../node_modules/normalize.css/normalize.css";
 
+:root {
+    --color: #000;
+    --background: #fff;
+    --border-color: #ccc;
+    --svg-fill: rgb(191, 221, 243);
+    --svg-wedge: dodgerblue;
+    --link-color: #0b67c4;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color: rgb(187, 198, 206);
+        --background: rgb(8, 33, 51);
+        --border-color: rgb(20, 81, 125);
+        --svg-fill: dodgerblue;
+        --svg-wedge: rgb(191, 221, 243);
+        --link-color: dodgerblue;
+    }
+}
+
 body {
     font-size: 14px;
     font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -8,7 +28,8 @@ body {
 #root {
     padding: 2rem 1.5rem;
     min-height: 100vh;
-    background: #fff;
+    color: var(--color);
+    background: var(--background);
 }
 
 h1 {
@@ -19,6 +40,7 @@ fieldset {
     margin-bottom: 10px;
     padding: 10px 15px 18px;
     max-width: 450px;
+    border: 1px solid var(--border-color);
 }
 
 fieldset b,
@@ -52,7 +74,7 @@ table {
 }
 
 td {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid var(--border-color);
     padding: 8px 0;
     line-height: 1.5;
 }
@@ -90,7 +112,7 @@ body.has-js .no-js,
 
 a {
     cursor: pointer; /* For the sake of JS-created links without `href`s. */
-    color: #0b67c4;
+    color: var(--link-color);
     text-decoration: underline;
 }
 
