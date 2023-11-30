@@ -4,8 +4,8 @@
     @include('cropfactor-form')
 
     @push('scripts')
-        <script>
-            const angle = {{ $results['angleOfView'] }};
+    <script>
+        const angle = {{ $results['angleOfView'] }};
             const degToRad = degrees => degrees * (Math.PI / 180);
             const startAngle = angle => -degToRad(angle / 2) + degToRad(90);
             const endAngle = angle => degToRad(angle / 2) + degToRad(90);
@@ -65,6 +65,6 @@
                     }
                 }
             });
-        </script>
+    </script>
     @endpush
 </x-layout>
