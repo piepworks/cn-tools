@@ -13,7 +13,6 @@
     <script src="/htmx-1.9.4.min.js"></script>
     <script src="/idiomorph-ext-0.0.8.min.js"></script>
     <script src="/d3.v7.min.js"></script>
-    <script defer data-domain="tools.cassettenest.com" src="https://plausible.io/js/script.js"></script>
     @vite(['resources/css/app.css'])
 </head>
 
